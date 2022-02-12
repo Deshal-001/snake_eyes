@@ -11,9 +11,19 @@ class aboutUsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          title: const Text("About Us"),
+          centerTitle: true,
+          backgroundColor: Color(0xFF0C3823),
+        ),
         resizeToAvoidBottomInset: false,
         // appBar: AppBar(backgroundColor: Colors.teal,),
         body: SafeArea(
+
           child: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -50,39 +60,44 @@ class aboutUsPage extends StatelessWidget {
                   ]),
                 ),
                 personalCard(
-                  name: "H.Kavindu Deshal Silva",
+                  name: "A.D.R Fernandopulle    ",
                   path: 'assest/profilePictures/profile.jpg',
-                  uowId: 'w1839723',
+                  uowId: 'w18102011',
                   iitId: 20200969,
                   color: const Color(0xFF0C3823),
+                  degree: "Software Engineering",
                 ),
                 personalCard(
-                  name: "Dimuth Fernandofulle  ",
+                  name: "H. K. D Silva",
                   path: 'assest/profilePictures/profile.jpg',
-                  uowId: 'w1839723',
+                  uowId: 'w1839723/1',
                   iitId: 20200969,
                   color: const Color(0xFF0C3823),
+                  degree: "Software Engineering",
                 ),
                 personalCard(
-                  name: "G.Avishka Kavinda     ",
+                  name: "D. G. A. Kavinda",
                   path: 'assest/profilePictures/profile.jpg',
-                  uowId: 'w1839723',
+                  uowId: 'w18101955',
                   iitId: 20200969,
                   color: const Color(0xFF0C3823),
+                  degree: "Computer Science",
                 ),
                 personalCard(
-                  name: "K.Chanuthi Rajapaksha",
+                  name: "K.K.C.S.Sarathchandra",
                   path: 'assest/profilePictures/profile.jpg',
-                  uowId: 'w1839723',
+                  uowId: 'w18098547',
                   iitId: 20200969,
                   color: const Color(0xFF0C3823),
+                  degree: "Software Engineering",
                 ),
                 personalCard(
-                  name: "Saumya Kumarasinghe",
+                  name: "A.L.S.D.Kumarasinghe",
                   path: 'assest/profilePictures/profile.jpg',
-                  uowId: 'w1839723',
+                  uowId: 'w18105698',
                   iitId: 20200969,
                   color: const Color(0xFF0C3823),
+                  degree: "Software Engineering",
                 ),
               ],
             ),
@@ -130,13 +145,15 @@ class personalCard extends StatelessWidget {
   final String uowId;
   final int iitId;
   final Color color;
+  final String degree;
 
   personalCard(
       {required this.path,
       required this.name,
       required this.uowId,
       required this.iitId,
-      required this.color});
+      required this.color,
+       required this.degree});
 
   @override
   Widget build(BuildContext context) {
@@ -158,25 +175,37 @@ class personalCard extends StatelessWidget {
                 minRadius: 20,
               ),
             ),
+            const SizedBox(
+              width:10 ,),
+
             Expanded(
               flex: 20,
               // margin: EdgeInsets.fromLTRB(7, 10, 2, 10),
               child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
+               mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    name,
-                    style: GoogleFonts.oswald(fontSize: 25),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      name,
+                      style: GoogleFonts.oswald(fontSize: 25),textAlign: TextAlign.left,
+                    ),
                   ),
-                  Text(
-                    "UOW ID : $uowId\nIIT ID : $iitId       ",
-                    style:
-                        GoogleFonts.sourceCodePro(fontWeight: FontWeight.w800),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "UOW ID : $uowId\nIIT ID : $iitId",
+                      style:
+                          GoogleFonts.sourceCodePro(fontWeight: FontWeight.w800,),textAlign: TextAlign.left
+                    ),
                   ),
-                  Text(
-                    "Software Engineering    ",
-                    style:
-                        GoogleFonts.sourceCodePro(fontWeight: FontWeight.w400),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      degree,
+                      style:
+                          GoogleFonts.sourceCodePro(fontWeight: FontWeight.w400),
+                    ),
                   )
                 ],
               ),
