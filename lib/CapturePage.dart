@@ -50,19 +50,27 @@ class _capturePageState extends State<capturePage> {
             children: [
               Container(
                 margin: EdgeInsets.all(10),
-                  decoration:BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(6),
-                  )
-                  ,child: RaisedButton.icon(autofocus: true,onPressed: (){ pickImage(ImageSource.camera);}, label: Text("Capture"),icon: Icon(FontAwesomeIcons.camera))),
+                child: Ink( 
+
+                  //margin: EdgeInsets.all(10),
+                    decoration:BoxDecoration(
+                      gradient: LinearGradient(colors: [Color(0xff00b09b), Color(0xff96c93d)]),
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(6),
+                    )
+                    ,child: TextButton.icon(autofocus: true,onPressed: (){ pickImage(ImageSource.camera);}, label: Text("Capture",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),icon: Icon(FontAwesomeIcons.camera,color: Colors.black,))),
+              ),
 
               Container(
-                  margin: EdgeInsets.all(10),
-                  decoration:BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(6),
-                  )
-                  ,child: RaisedButton.icon(autofocus: true,onPressed: (){pickImage(ImageSource.gallery);}, label: Text("Gallery"),icon: Icon(FontAwesomeIcons.fileImage),)),
+                margin: EdgeInsets.all(10),
+                child: Ink(
+                    decoration:BoxDecoration(
+                      gradient: LinearGradient(colors: [Color(0xff00b09b), Color(0xff96c93d)]),
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(6),
+                    )
+                    ,child: TextButton.icon(autofocus: true,onPressed: (){pickImage(ImageSource.gallery);}, label: Text("Gallery",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),icon: Icon(FontAwesomeIcons.fileImage,color: Colors.black,),)),
+              ),
               image !=null?Image.file(image!
               ,fit: BoxFit.cover,):Image(image: AssetImage("assest/snakeEyeLogo.jpg"),)
 
