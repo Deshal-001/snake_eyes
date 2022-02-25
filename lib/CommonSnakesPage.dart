@@ -61,55 +61,55 @@ class _CommonSnakesPageState extends State<CommonSnakesPage> {
                   "",
                   snakesImages[0],
                   0.97,
-                  "Naja Naja"),
+                  "Naja Naja","Elapidae"),
               snakes(
                   snakesList[1],
                   "",
                   snakesImages[1],
                   0.9,
-                  "Bungarus Caeruleus"),
+                  "Bungarus Caeruleus","Elapidae"),
               snakes(
                   snakesList[2],
                   "",
                   snakesImages[2],
                   0.9,
-                  "Hypnale Hypnale"),
+                  "Hypnale Hypnale","Viperidae"),
               snakes(
                   snakesList[3],
                   "",
                   snakesImages[3],
                   0.1,
-                  "Aesculapian Snake"),
+                  "Aesculapian Snake","Colubridae"),
               snakes(
                   snakesList[4],
                   "",
                   snakesImages[4],
                   0.8,
-                  "Daboia Russelii"),
+                  "Daboia Russelii","Viperidae"),
               snakes(
                   snakesList[5],
                   "",
                   snakesImages[5],
                   0.8,
-                  "Echis Carinatus"),
+                  "Echis Carinatus","Viperidae"),
               snakes(
                   snakesList[6],
                   "",
                   snakesImages[6],
                   0.5,
-                  "Ahaetulla Nasuta"),
+                  "Ahaetulla Nasuta","Colubridae"),
               snakes(
                   snakesList[7],
                   "",
                   snakesImages[7],
                   0.1,
-                  "Python Molurus"),
+                  "Python Molurus","Pythonidae"),
               snakes(
                   snakesList[8],
                   "",
                   snakesImages[8],
                   0.1,
-                  "Gongylophis Conicus"),
+                  "Gongylophis Conicus","Boidae"),
 
               /**
                   1. cobra
@@ -177,8 +177,9 @@ class snakes extends StatelessWidget {
   String path;
   double toxicLevel;
   String ScientificName;
+  String family;
 
-  snakes(this.name, this.data, this.path, this.toxicLevel, this.ScientificName);
+  snakes(this.name, this.data, this.path, this.toxicLevel, this.ScientificName,this.family);
 
   @override
   Widget build(BuildContext context) {
@@ -242,6 +243,21 @@ class snakes extends StatelessWidget {
                         flex: 2,
                         child: Text(
                           ScientificName,
+                          style: GoogleFonts.abel(color: Colors.white),
+                        ))
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                        flex: 2,
+                        child: Container(
+                            margin: EdgeInsets.only(left: 7),
+                            child: Text("Family:",style: TextStyle(color: Colors.white),))),
+                    Expanded(
+                        flex: 2,
+                        child: Text(
+                          family,
                           style: GoogleFonts.abel(color: Colors.white),
                         ))
                   ],
