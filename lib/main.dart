@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: Colors.green,
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const HomePage(),
         '/first': (context) => const MenuPage(),
         '/commonsnakes': (context) => const CommonSnakesPage(),
-        '/firstaid': (context) => const firstAidPage(),
+        '/firstaid': (context) => const FirstAidPage(),
         '/aboutus': (context) =>  aboutUsPage(),
         '/capture': (context) =>  capturePage(),
       },

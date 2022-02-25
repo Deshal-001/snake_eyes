@@ -41,38 +41,38 @@ class _capturePageState extends State<capturePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Capture"),
-        backgroundColor: Color(0xFF0C3823),
+        title: const Text("Capture"),
+        backgroundColor: const Color(0xFF0C3823),
       ),
       body: SafeArea(
         child: Center(
           child: ListView(
             children: [
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: Ink( 
 
                   //margin: EdgeInsets.all(10),
                     decoration:BoxDecoration(
-                      gradient: LinearGradient(colors: [Color(0xff00b09b), Color(0xff96c93d)]),
+                      gradient: const LinearGradient(colors: [Color(0xff00b09b), Color(0xff96c93d)]),
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(6),
                     )
-                    ,child: TextButton.icon(autofocus: true,onPressed: (){ pickImage(ImageSource.camera);}, label: Text("Capture",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),icon: Icon(FontAwesomeIcons.camera,color: Colors.black,))),
+                    ,child: TextButton.icon(autofocus: true,onPressed: (){ pickImage(ImageSource.camera);}, label: const Text("Capture",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),icon: const Icon(FontAwesomeIcons.camera,color: Colors.black,))),
               ),
 
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: Ink(
                     decoration:BoxDecoration(
-                      gradient: LinearGradient(colors: [Color(0xff00b09b), Color(0xff96c93d)]),
+                      gradient: const LinearGradient(colors: [const Color(0xff00b09b), const Color(0xff96c93d)]),
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(6),
                     )
-                    ,child: TextButton.icon(autofocus: true,onPressed: (){pickImage(ImageSource.gallery);}, label: Text("Gallery",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),icon: Icon(FontAwesomeIcons.fileImage,color: Colors.black,),)),
+                    ,child: TextButton.icon(autofocus: true,onPressed: (){pickImage(ImageSource.gallery);}, label: const Text("Gallery",style: const TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),icon: const Icon(FontAwesomeIcons.fileImage,color: Colors.black,),)),
               ),
               image !=null?Image.file(image!
-              ,fit: BoxFit.cover,):Image(image: AssetImage("assest/snakeEyeLogo.jpg"),)
+              ,fit: BoxFit.cover,):const Image(image: AssetImage("assest/snakeEyeLogo.jpg"),)
 
 
 

@@ -104,31 +104,41 @@ class aboutUsPage extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: const Color(0xFF0C3823),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
+                label: "Home"),
             BottomNavigationBarItem(
-              icon: Icon(Icons.camera),
+              icon: Icon(
+                Icons.camera,
+                color: Colors.white,
+              ),
               label: 'Capture',
             ),
             BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.database),
+              icon: Icon(
+                FontAwesomeIcons.database,
+                color: Colors.white,
+              ),
               label: 'Snakes',
             ),
           ],
           selectedItemColor: Colors.amber[800],
+          unselectedItemColor: Colors.white,
           onTap: (index) {
             switch (index) {
               case 0:
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const MenuPage();
+                  return MenuPage();
                 }));
                 break;
               case 2:
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const CommonSnakesPage();
+                  return CommonSnakesPage();
                 }));
                 break;
             }
