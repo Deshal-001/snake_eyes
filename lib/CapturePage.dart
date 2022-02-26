@@ -37,8 +37,6 @@ class _capturePageState extends State<capturePage> {
   @override
   Widget build(BuildContext context) {
 
-
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Capture"),
@@ -50,12 +48,12 @@ class _capturePageState extends State<capturePage> {
             children: [
               Container(
                 margin: const EdgeInsets.all(10),
-                child: Ink( 
+                child: Ink(
 
                   //margin: EdgeInsets.all(10),
                     decoration:BoxDecoration(
                       gradient: const LinearGradient(colors: [Color(0xff00b09b), Color(0xff96c93d)]),
-                      border: Border.all(color: Colors.black),
+                     // border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(6),
                     )
                     ,child: TextButton.icon(autofocus: true,onPressed: (){ pickImage(ImageSource.camera);}, label: const Text("Capture",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),icon: const Icon(FontAwesomeIcons.camera,color: Colors.black,))),
@@ -66,7 +64,7 @@ class _capturePageState extends State<capturePage> {
                 child: Ink(
                     decoration:BoxDecoration(
                       gradient: const LinearGradient(colors: [const Color(0xff00b09b), const Color(0xff96c93d)]),
-                      border: Border.all(color: Colors.black),
+                   //   border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(6),
                     )
                     ,child: TextButton.icon(autofocus: true,onPressed: (){pickImage(ImageSource.gallery);}, label: const Text("Gallery",style: const TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),icon: const Icon(FontAwesomeIcons.fileImage,color: Colors.black,),)),

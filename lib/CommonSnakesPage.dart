@@ -215,14 +215,14 @@ class Snakes extends StatelessWidget {
                         child: Container(
                             margin: const EdgeInsets.only(left: 7),
                             child:  Text(
-                              "Scientific Name:",
+                              "Scientific Name :",
                               style:  TextStyle(color: fontColor),
                             ))),
                     Expanded(
                         flex: 2,
                         child: Text(
                           ScientificName,
-                          style: GoogleFonts.abel(color: fontColor),
+                          style: GoogleFonts.abel(color: fontColor,fontStyle: FontStyle.italic),
                         ))
                   ],
                 ),
@@ -233,7 +233,7 @@ class Snakes extends StatelessWidget {
                         child: Container(
                             margin: const EdgeInsets.only(left: 7),
                             child:  Text(
-                              "Family:",
+                              "Family  :",
                               style:  TextStyle(color: fontColor),
                             ))),
                     Expanded(
@@ -265,7 +265,7 @@ class Snakes extends StatelessWidget {
                         },
                         child:
                             Container(decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xFF0C3823)   ),
+                                border: Border.all(color: const Color(0xFF0C3823)   ),
                                 borderRadius: BorderRadius.circular(10)
                             ),child: const Padding(
                               padding: EdgeInsets.all(6.0),
@@ -376,6 +376,14 @@ class DetailScreen extends StatelessWidget {
 
             ],
           ),
+          Row(
+            children:  [
+               Container(child: const Text("Scientific Name : "),margin: const EdgeInsets.all(7)),
+              Expanded(flex:2,child: Text(snake.ScientificName,style: GoogleFonts.notoSerif(fontStyle: FontStyle.italic)))
+            ],
+          )
+
+          ,
           Container(
             margin: const EdgeInsets.all(5),
             child:  Text(snake.data,textAlign: TextAlign.justify,),

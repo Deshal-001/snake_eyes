@@ -33,29 +33,30 @@ class aboutUsPage extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
+                   // gradient: const LinearGradient(colors: [const Color(0xff00b09b),Color(0xFF0C3823),const Color(0xff00b09b)]),
                     borderRadius: BorderRadius.circular(25.0),
                     color: const Color(0xFF0C3823),
                   ),
                   margin: const EdgeInsets.fromLTRB(5, 20, 5, 20),
                   child: Column(children: [
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     Text(
                       "WE ARE ",
-                      style: GoogleFonts.abel(color: Colors.white),
+                      style: GoogleFonts.amarante(color: Colors.white),
                     ),
                     Text(
                       "CYBER KNIGHTS",
-                      style: GoogleFonts.bebasNeue(
-                          fontSize: 50, color: Colors.white),
+                      style: GoogleFonts.tradeWinds(
+                          fontSize: 40, color: Colors.white),
                     ),
-                    const Icon(
+                   /*const Icon(
                       FontAwesomeIcons.chessKnight,
                       color: Colors.white,
-                    ),
+                    ),*/
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                   ]),
                 ),
