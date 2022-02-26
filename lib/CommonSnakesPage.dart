@@ -265,11 +265,11 @@ class Snakes extends StatelessWidget {
                         },
                         child:
                             Container(decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
+                                border: Border.all(color: Color(0xFF0C3823)   ),
                                 borderRadius: BorderRadius.circular(10)
                             ),child: const Padding(
                               padding: EdgeInsets.all(6.0),
-                              child: Text("See More..", style: TextStyle()),
+                              child: Text("See More", style: TextStyle()),
                             )),
                       ),
                     ))
