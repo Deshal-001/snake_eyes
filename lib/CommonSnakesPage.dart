@@ -1,34 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import 'MenuPage.dart';
+import 'Snake.dart';
 
-List snakesList = [
-  "Cobra",
-  "Common Krait",
-  "Hump Nosed PitViper",
-  "Rat Snake",
-  "Rusellas Viper",
-  "Saw Scaled Viper",
-  "Green Tree Vine",
-  "Indian Rock Python",
-  "Common Sand Boa"
-];
-
-List snakesImages = [
-  "assest/snakes/cobra.jpeg",
-  "assest/snakes/commonKrait.jpeg",
-  "assest/snakes/humpNosedPitViper.jpeg",
-  "assest/snakes/ratsnake.jpeg",
-  "assest/snakes/rusellasViper.jpeg",
-  "assest/snakes/sawScaledViper.jpeg",
-  "assest/snakes/greentreeVine.jpeg",
-  "assest/snakes/indianrockpython.jpeg",
-  "assest/snakes/commonsandboa.jpeg"
-];
 
 class CommonSnakesPage extends StatefulWidget {
   const CommonSnakesPage({Key? key}) : super(key: key);
@@ -50,76 +27,71 @@ class _CommonSnakesPageState extends State<CommonSnakesPage> {
           ),
           title: const Text("Common Snakes"),
           centerTitle: true,
-          backgroundColor: Color(0xFF0C3823),
+          backgroundColor: const Color(0xFF0C3823),
         ),
         body: SafeArea(
           child: ListView(
             children: [
-              snakes(
-                  snakesList[0],
+              Snakes(Cobra.name, "", Cobra.path, Cobra.toxicLevel,
+                  Cobra.ScientificName, Cobra.family, Cobra),
+              Snakes(
+                  Common_Krait.name,
                   "",
-                  snakesImages[0],
-                  0.97,
-                  "Naja Naja","Elapidae"),
-              snakes(
-                  snakesList[1],
+                  Common_Krait.path,
+                  Common_Krait.toxicLevel,
+                  Common_Krait.ScientificName,
+                  Common_Krait.family,
+                  Common_Krait),
+              Snakes(
+                  Hump_Nosed_PitViper.name,
                   "",
-                  snakesImages[1],
-                  0.9,
-                  "Bungarus Caeruleus","Elapidae"),
-              snakes(
-                  snakesList[2],
+                  Hump_Nosed_PitViper.path,
+                  Hump_Nosed_PitViper.toxicLevel,
+                  Hump_Nosed_PitViper.ScientificName,
+                  Hump_Nosed_PitViper.family,
+                  Hump_Nosed_PitViper),
+              Snakes(Rat_Snake.name, "", Rat_Snake.path, Rat_Snake.toxicLevel,
+                  Rat_Snake.ScientificName, Rat_Snake.family, Rat_Snake),
+              Snakes(
+                  Rusellas_Viper.name,
                   "",
-                  snakesImages[2],
-                  0.9,
-                  "Hypnale Hypnale","Viperidae"),
-              snakes(
-                  snakesList[3],
+                  Rusellas_Viper.path,
+                  Rusellas_Viper.toxicLevel,
+                  Rusellas_Viper.ScientificName,
+                  Rusellas_Viper.family,
+                  Rusellas_Viper),
+              Snakes(
+                  Saw_Scaled_Viper.name,
                   "",
-                  snakesImages[3],
-                  0.1,
-                  "Aesculapian Snake","Colubridae"),
-              snakes(
-                  snakesList[4],
+                  Saw_Scaled_Viper.path,
+                  Saw_Scaled_Viper.toxicLevel,
+                  Saw_Scaled_Viper.ScientificName,
+                  Saw_Scaled_Viper.family,
+                  Saw_Scaled_Viper),
+              Snakes(
+                  Green_Tree_Vine.name,
                   "",
-                  snakesImages[4],
-                  0.8,
-                  "Daboia Russelii","Viperidae"),
-              snakes(
-                  snakesList[5],
+                  Green_Tree_Vine.path,
+                  Green_Tree_Vine.toxicLevel,
+                  Green_Tree_Vine.ScientificName,
+                  Green_Tree_Vine.family,
+                  Green_Tree_Vine),
+              Snakes(
+                  Indian_Rock_Python.name,
                   "",
-                  snakesImages[5],
-                  0.8,
-                  "Echis Carinatus","Viperidae"),
-              snakes(
-                  snakesList[6],
+                  Indian_Rock_Python.path,
+                  Indian_Rock_Python.toxicLevel,
+                  Indian_Rock_Python.ScientificName,
+                  Indian_Rock_Python.family,
+                  Indian_Rock_Python),
+              Snakes(
+                  Common_Sand_Boa.name,
                   "",
-                  snakesImages[6],
-                  0.5,
-                  "Ahaetulla Nasuta","Colubridae"),
-              snakes(
-                  snakesList[7],
-                  "",
-                  snakesImages[7],
-                  0.1,
-                  "Python Molurus","Pythonidae"),
-              snakes(
-                  snakesList[8],
-                  "",
-                  snakesImages[8],
-                  0.1,
-                  "Gongylophis Conicus","Boidae"),
-
-              /**
-                  1. cobra
-                  2. commonKrait
-                  3. humpNosedPitViper
-                  4. rat snake
-                  5. rusellasViper
-                  6. sawScaledViper
-                  7. green tree Vine
-                  8. indian rock python
-                  9. common sand boa  **/
+                  Common_Sand_Boa.path,
+                  Common_Sand_Boa.toxicLevel,
+                  Common_Sand_Boa.ScientificName,
+                  Common_Sand_Boa.family,
+                  Common_Sand_Boa),
             ],
           ),
         ),
@@ -170,25 +142,27 @@ class _CommonSnakesPageState extends State<CommonSnakesPage> {
   }
 }
 
-class snakes extends StatelessWidget {
+class Snakes extends StatelessWidget {
   late String name;
   String data;
   String path;
   double toxicLevel;
   String ScientificName;
   String family;
+  Snake snake;
 
-  snakes(this.name, this.data, this.path, this.toxicLevel, this.ScientificName,this.family);
+  Snakes(this.name, this.data, this.path, this.toxicLevel, this.ScientificName,
+      this.family, this.snake);
 
   @override
   Widget build(BuildContext context) {
+    Color fontColor=Colors.black;
     return Container(
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
-        color: const Color(0xFF375b52 ),
+       // border: Border.all(color: Colors.black),
+        color: const Color(0xFF99CC99 ),
         borderRadius: BorderRadius.circular(15),
-
       ),
       child: Row(
         children: [
@@ -196,12 +170,13 @@ class snakes extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.only(left: 6,bottom: 5),
+                  margin: const EdgeInsets.only(left: 6, bottom: 5),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
                       name,
-                      style: GoogleFonts.breeSerif(fontSize: 25,color: Colors.white),
+                      style: GoogleFonts.breeSerif(
+                          fontSize: 25, color: fontColor),
                       textAlign: TextAlign.left,
                     ),
                   ),
@@ -210,9 +185,10 @@ class snakes extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(left: 5),
-                      child: const Align(
+                      child:  Align(
                         child: Text(
-                          "Toxicity Level :",style: TextStyle(color: Colors.white),
+                          "Toxicity Level :",
+                          style: TextStyle(color: fontColor),
                           textAlign: TextAlign.left,
                         ),
                         alignment: Alignment.topLeft,
@@ -220,10 +196,11 @@ class snakes extends StatelessWidget {
                     ),
                     Expanded(
                       child: LinearPercentIndicator(
+
                         animation: true,
                         animationDuration: 2500,
                         linearStrokeCap: LinearStrokeCap.roundAll,
-                        lineHeight: 14.0,
+                        lineHeight: 10.0,
                         percent: toxicLevel,
                         backgroundColor: Colors.grey,
                         progressColor: Colors.red,
@@ -236,13 +213,16 @@ class snakes extends StatelessWidget {
                     Expanded(
                         flex: 2,
                         child: Container(
-                            margin: EdgeInsets.only(left: 7),
-                            child: Text("Scientific Name:",style: TextStyle(color: Colors.white),))),
+                            margin: const EdgeInsets.only(left: 7),
+                            child:  Text(
+                              "Scientific Name:",
+                              style:  TextStyle(color: fontColor),
+                            ))),
                     Expanded(
                         flex: 2,
                         child: Text(
                           ScientificName,
-                          style: GoogleFonts.abel(color: Colors.white),
+                          style: GoogleFonts.abel(color: fontColor),
                         ))
                   ],
                 ),
@@ -251,13 +231,16 @@ class snakes extends StatelessWidget {
                     Expanded(
                         flex: 2,
                         child: Container(
-                            margin: EdgeInsets.only(left: 7),
-                            child: Text("Family:",style: TextStyle(color: Colors.white),))),
+                            margin: const EdgeInsets.only(left: 7),
+                            child:  Text(
+                              "Family:",
+                              style:  TextStyle(color: fontColor),
+                            ))),
                     Expanded(
                         flex: 2,
                         child: Text(
                           family,
-                          style: GoogleFonts.abel(color: Colors.white),
+                          style: GoogleFonts.abel(color: fontColor),
                         ))
                   ],
                 ),
@@ -268,12 +251,26 @@ class snakes extends StatelessWidget {
                 Align(
                     alignment: Alignment.topLeft,
                     child: Container(
-                      margin: const EdgeInsets.only(left: 8),
+
+                    //  margin: const EdgeInsets.only(left: 8),
                       child: TextButton(
                         onPressed: () {
-                          print("Tapped");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailScreen(snake: snake),
+                            ),
+                          );
+                          print(snake.snakeType.toString());
                         },
-                        child: Text("See More..", style: TextStyle()),
+                        child:
+                            Container(decoration: BoxDecoration(
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(10)
+                            ),child: const Padding(
+                              padding: EdgeInsets.all(6.0),
+                              child: Text("See More..", style: TextStyle()),
+                            )),
                       ),
                     ))
               ],
@@ -281,16 +278,112 @@ class snakes extends StatelessWidget {
             flex: 20,
           ),
           Container(
-          margin: EdgeInsets.only(right: 6,top: 10,bottom: 10),
+              margin: const EdgeInsets.only(right: 6, top: 10, bottom: 10),
               width: 105,
               height: 150,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10), // Image border
                 child: SizedBox.fromSize(
-                  size: Size.fromRadius(40), // Image radius
+                  size: const Size.fromRadius(40), // Image radius
                   child: Image.asset(path, fit: BoxFit.cover),
                 ),
               )),
+        ],
+      ),
+    );
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  const DetailScreen({Key? key, required this.snake}) : super(key: key);
+
+  final Snake snake;
+
+
+  @override
+  Widget build(BuildContext context) {
+    Color color;
+
+    Color getSnakeType(String snakeType){
+      if(snakeType=="Highly-Venomous"){
+        color=const Color(0xFFef6666 );
+      }
+      else if(snakeType=="Midly-Venomous"){
+        color=Colors.yellow;
+      }
+      else{
+        color=Colors.lightGreenAccent;
+      }
+      return color;
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(snake.name),
+        backgroundColor: const Color(0xFF0C3823),
+      ),
+      body: ListView(
+        children: [
+          Image(image: AssetImage(snake.path),height: 400,fit: BoxFit.cover,),
+      Container(
+        decoration: BoxDecoration(
+          //color: Colors.grey,
+         // border: Border.all(width: 0.5,color: Colors.black),
+          borderRadius: BorderRadius.circular(20)
+        ),
+
+      margin: const EdgeInsets.all(5),
+
+
+      child: Column(
+        children: [
+          Row(
+            children: [
+
+
+              Expanded(
+                child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: getSnakeType(snake.snakeType.toString()),
+                    ),
+                  child:Container(child: Text(snake.snakeType,textAlign: TextAlign.center,style: GoogleFonts.bebasNeue(),),margin: const EdgeInsets.all(5),)
+
+                ),
+              ),const SizedBox(child: const Text("   | "),),
+              Container(
+                margin: const EdgeInsets.all(7),
+                child:   Align(
+                  child: Text(
+                    "Family :",
+                    style: GoogleFonts.sansita(color: Colors.black,fontSize: 17),
+                    textAlign: TextAlign.left,
+                  ),
+                  alignment: Alignment.topLeft,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(7),
+                child:  Align(
+                  child: Text(
+                    snake.family,
+                    style: GoogleFonts.notoSerif(color: Colors.black,fontSize: 16),
+                    textAlign: TextAlign.left,
+                  ),
+                  alignment: Alignment.topLeft,
+                ),
+              ),
+
+            ],
+          ),
+          Container(
+            margin: const EdgeInsets.all(5),
+            child:  Text(snake.data,textAlign: TextAlign.justify,),
+          )
+        ],
+      ),
+      ),
+
         ],
       ),
     );
